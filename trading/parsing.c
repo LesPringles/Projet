@@ -42,7 +42,7 @@ void Id(char *htmlStr)
     char *ptr = strstr(htmlStr, "<h1>");
     while (n < NBRACTION)
     {
-        
+        ptr = strstr(ptr, "<li>");
         
     }
     

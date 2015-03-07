@@ -21,7 +21,7 @@ int main(const int argc, char **argv)
     strcpy(chaine, LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p"));
     strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
     
-    parseAjax(chaine, chaineHtml);
+    ParseAjax(chaine);
     
     free(chaineHtml);
     

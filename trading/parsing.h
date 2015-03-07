@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-void parseAjax(char *chaineAjax, char *chaineHtml);
+void ParseAjax(char *ajaxStr);
 
 #endif /* defined(__trading__parsing__) */
