@@ -11,42 +11,47 @@
 #include <stdlib.h>
 #include <string.h>
 #define STEP 1024
-#define NBRACTION 41
+#define NBRACTION 40
 
+// fonciton de parsing du flux ajax. Prend en parametre la string du flux
 void ParseAjax(char *ajaxStr)
 {
-    char str2[50000];
-    char str3[50000];
+    char *ptr = ajaxStr + 65;
     int id = 0;
     float open, pct, last, high, ask, low, bid, prev;
     int volume = 0;
     char time[8];
-    sscanf(&ajaxStr[65], "%50000s", str2);
     unsigned n = 0;
-    while (n < NBRACTION)
+    while (n < NBRACTION + 1) // le flux ajax contient aussi la valeur du CAC40
     {
-        sscanf(str2, "\"%d\" :{\"open\":\"%f\",\"time\":\"%5s\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"}, %s", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev, str3);
-        strcpy(str2, str3);
+        // parsing du flux ajax
+        sscanf(ptr, "\"%d\" :{\"open\":\"%f\",\"time\":\"%5s\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"},", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev);
+        ptr = strstr(ptr, "},") + 2;
         
-        printf("%d \n%f\n", id, open);
-        printf("\n");
+        printf("%d \n%f\n\n", id, open);
         n++;
     }
     
 }
 
-
-void Id(char *htmlStr)
+// Identification du ID des actions pour avoir le nom correspondant
+// Identification fait une seule fois a partir d'un parsing de la page HTML qui utilise le flux ajax
+// Prend donc en parametre le code source de la page HTML sous forme de texte
+void IdentificationID(char *htmlStr)
 {
     int n = 0;
     char *ptr = strstr(htmlStr, "<h1>");
+    char nameID[40];
+    int id = 0;
     while (n < NBRACTION)
     {
-        ptr = strstr(ptr, "<li>");
-        
+        ptr = strstr(ptr, "title");
+        ptr += 6; // on avance le pointeur de 'title=' pour tomber sur le premier nameID
+        sscanf(ptr, "\"%40[^\"]", nameID); // parsing de "Carrefour" (exemple)
+        ptr = strstr(ptr, "id=") + 12;   // 'id=hmstock_'
+        sscanf(ptr, "%d", &id);
+        printf("%d\n%s\n\n", id, nameID);
+        n++;
     }
-    
-    
-    
     
 }

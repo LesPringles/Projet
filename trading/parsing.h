@@ -12,5 +12,6 @@
 #include <stdio.h>
 
 void ParseAjax(char *ajaxStr);
+void IdentificationID(char *htmlStr);
 
 #endif /* defined(__trading__parsing__) */

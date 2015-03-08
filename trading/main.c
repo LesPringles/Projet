@@ -22,6 +22,7 @@ int main(const int argc, char **argv)
     strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
     
     ParseAjax(chaine);
+    IdentificationID(chaineHtml);
     
     free(chaineHtml);
     
