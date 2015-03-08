@@ -1,11 +1,12 @@
 #include "algotechnique.h"
+#include "action.h"
 
-float MMA(float jour[], int nbjour)
+float MMA(Stock stock, int i, int nbjour) //i est le jour actuel
 {
 	float mma = 0;
-	for(int i = 0; i > nbjour; i++)
+	for(int j = 0; j > nbjour; j++)
 	{
-		mma = mma + jour[nbjour - i];
+		mma = mma + stock[i - j] -> prev;		
 	}
 	return (mma / nbjour);
 }
