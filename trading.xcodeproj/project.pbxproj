@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE127B481AABCDBB00045BAB /* action.c in Sources */ = {isa = PBXBuildFile; fileRef = CE127B461AABCDBB00045BAB /* action.c */; };
 		CE127B4A1AACB8A900045BAB /* MMA.c in Sources */ = {isa = PBXBuildFile; fileRef = CE127B491AACB8A900045BAB /* MMA.c */; };
+		CE127B4E1AACBBBB00045BAB /* simulation.c in Sources */ = {isa = PBXBuildFile; fileRef = CE127B4C1AACBBBB00045BAB /* simulation.c */; };
 		CE2313F71AAB6A4900B721E8 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2313F61AAB6A4900B721E8 /* libcurl.4.dylib */; };
 		CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313F81AAB73FB00B721E8 /* reseau.c */; };
 		CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313FB1AAB770A00B721E8 /* parsing.c */; };
@@ -40,6 +41,10 @@
 		CE127B461AABCDBB00045BAB /* action.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = action.c; sourceTree = SOURCE_ROOT; };
 		CE127B471AABCDBB00045BAB /* action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = action.h; sourceTree = SOURCE_ROOT; };
 		CE127B491AACB8A900045BAB /* MMA.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MMA.c; sourceTree = "<group>"; };
+		CE127B4B1AACBABD00045BAB /* algoTechnique.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = algoTechnique.h; path = trading/algoTechnique.h; sourceTree = "<group>"; };
+		CE127B4C1AACBBBB00045BAB /* simulation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = simulation.c; sourceTree = "<group>"; };
+		CE127B4D1AACBBBB00045BAB /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simulation.h; path = trading/simulation.h; sourceTree = "<group>"; };
+		CE127B501AACE2B300045BAB /* BN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BN; sourceTree = "<group>"; };
 		CE2313F61AAB6A4900B721E8 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = ../../../../../opt/local/lib/libcurl.4.dylib; sourceTree = "<group>"; };
 		CE2313F81AAB73FB00B721E8 /* reseau.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reseau.c; sourceTree = "<group>"; };
 		CE2313F91AAB73FB00B721E8 /* reseau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reseau.h; path = trading/reseau.h; sourceTree = "<group>"; };
@@ -79,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE127B4F1AACE29600045BAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE127B501AACE2B300045BAB /* BN */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		CE2313F51AAB671100B721E8 /* libcurl libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +103,11 @@
 		CE2313FE1AAB771000B721E8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				CE127B4D1AACBBBB00045BAB /* simulation.h */,
 				CE127B471AABCDBB00045BAB /* action.h */,
 				CE2313F91AAB73FB00B721E8 /* reseau.h */,
 				CE2313FC1AAB770A00B721E8 /* parsing.h */,
+				CE127B4B1AACBABD00045BAB /* algoTechnique.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -100,6 +115,7 @@
 		CEC9D8A41AAB1B5300E1CE93 = {
 			isa = PBXGroup;
 			children = (
+				CE127B4F1AACE29600045BAB /* Resources */,
 				CE2313FE1AAB771000B721E8 /* Headers */,
 				CE2313F51AAB671100B721E8 /* libcurl libs */,
 				CEC9D8B81AAB2FC300E1CE93 /* GTK libs */,
@@ -124,6 +140,7 @@
 				CE2313F81AAB73FB00B721E8 /* reseau.c */,
 				CE2313FB1AAB770A00B721E8 /* parsing.c */,
 				CE127B461AABCDBB00045BAB /* action.c */,
+				CE127B4C1AACBBBB00045BAB /* simulation.c */,
 			);
 			name = Source;
 			path = trading;
@@ -203,6 +220,7 @@
 			files = (
 				CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */,
 				CEC9D8B11AAB1B5300E1CE93 /* main.c in Sources */,
+				CE127B4E1AACBBBB00045BAB /* simulation.c in Sources */,
 				CE127B4A1AACB8A900045BAB /* MMA.c in Sources */,
 				CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */,
 				CE127B481AABCDBB00045BAB /* action.c in Sources */,

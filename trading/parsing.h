@@ -17,5 +17,6 @@
 
 void ParseAjax(char *ajaxStr, Stock* tabStock[], size_t nbraction);
 void IdentificationID(char *htmlStr, Stock **tabStock, size_t nbraction);
+size_t ParseHisto(char *labelStock, char *URLCVS, StockHisto **historique);
 
 #endif /* defined(__trading__parsing__) */

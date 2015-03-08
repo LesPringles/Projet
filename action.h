@@ -10,12 +10,14 @@
 #define __trading__action__
 
 #include <stdio.h>
+#include <string.h>
 
 typedef struct stock *Stock;
 struct stock
 {
     int id;
-    char name[20]; // nombre de caractere du nom de l'action
+    char name[30]; // nombre de caractere du nom de l'action
+    char label[6];
     float open;
     float pct;
     float last;
@@ -27,9 +29,17 @@ struct stock
     float prev;
 };
 
+typedef struct histo *StockHisto;
+struct histo
+{
+    float open, high, low, close;
+    int volume;
+};
+
 void printS(Stock stock);
 void printSTK(int stockId, Stock **tabStock, size_t stkNbr);
 void printTabActions(Stock **tabAction, size_t nbrAction);
 Stock getSTKbyID(int stockId, Stock **tabStock, size_t stkNbr);
+Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr);
 
 #endif /* defined(__trading__action__) */

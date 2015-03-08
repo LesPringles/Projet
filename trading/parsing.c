@@ -52,23 +52,76 @@ void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
 {
     int n = 0;
     char *ptr = strstr(htmlStr, "<h1>");
-    char nameID[40];
+    char nameID[30];
+    char label[6];
     int id = 0;
     Stock stock = NULL;
+    
     while (n < stockNbr - 1)
     {
         ptr = strstr(ptr, "title");
         ptr += 6; // on avance le pointeur de 'title=' pour tomber sur le premier nameID
-        sscanf(ptr, "\"%20[^\"]", nameID); // parsing de "Carrefour" (exemple)
+        sscanf(ptr, "\"%30[^\"]", nameID); // parsing de "Carrefour" (exemple)
         ptr = strstr(ptr, "id="); // 'id=hmstock_'
         ptr += 12;
-        sscanf(ptr, "%d", &id);
+        sscanf(ptr, "%d\">%[A-Z]", &id, label);
         
         stock = getSTKbyID(id, tabStock, stockNbr);
         strcpy(stock->name, nameID);
+        strcpy(stock->label, label);
         
         // printf("%d\n%s\n\n", id, nameID);
         n++;
     }
     
 }
+
+// renvoie la taille du tableau
+size_t ParseHisto(char *labelStock, char *URLCVS, StockHisto **historique)
+{
+    FILE *fp = fopen("/Users/user/Documents/Soutenance1/BN","r");
+    char date[20];
+    char indice[20];
+    float open, high, low, close;
+    int volume;
+    int nbrday = 0;
+    int i = 0;
+    
+    
+    // si un cours a deja été récupéré
+    // on lit le fichier
+    if (fp != NULL)
+    {
+        fscanf(fp, "%d", &nbrday);
+        if (nbrday == 0)
+            return -1;
+        *historique = malloc(sizeof(StockHisto) * nbrday);
+        while((fscanf(fp, "%[^;];%[^;];%f;%f;%f;%f;%d\n",
+                     indice, date, &open, &high, &low, &close, &volume) != EOF)
+              && i < nbrday)
+        {
+            (*historique)[i] = malloc(sizeof(struct histo));
+            (*historique)[i]->open = open;
+            (*historique)[i]->high = high;
+            (*historique)[i]->low = low;
+            (*historique)[i]->close = close;
+            i++;
+        }
+        fclose(fp);
+        return nbrday;
+    }
+    else
+    {
+        // recuperer les cours depuis internet
+        // si le fichier n'existe pas
+        
+        return 0;
+    }
+
+}
+
+
+
+
+
+

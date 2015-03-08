@@ -10,8 +10,8 @@
 
 void printS(Stock stock)
 {
-    printf("%s\nID : %d\nopen : %f\n%f%%\nlast : %f\nVolume : %d\nHigh : %f\nBid : %f\nAsk : %f\nLow : %f\nPrev : %f\n\n",
-           stock->name, stock->id, stock->open, stock->pct, stock->last, stock->volume, stock->high, stock->bid, stock->ask, stock->low, stock->prev);
+    printf("%s - %s\nID : %d\nopen : %f\n%f%%\nlast : %f\nVolume : %d\nHigh : %f\nBid : %f\nAsk : %f\nLow : %f\nPrev : %f\n\n",
+           stock->name, stock->label, stock->id, stock->open, stock->pct, stock->last, stock->volume, stock->high, stock->bid, stock->ask, stock->low, stock->prev);
 }
 
 void printSTK(int stockId, Stock **tabStock, size_t stkNbr)
@@ -48,5 +48,23 @@ Stock getSTKbyID(int stockId, Stock **tabStock, size_t stkNbr)
     }
 }
 
+Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr)
+{
+    unsigned i = 0;
+    while (i < stkNbr && (strcmp(name, (*tabStock)[i]->name) != 0))
+    {
+        i++;
+    }
+    
+    if ((*tabStock)[i] == NULL || (strcmp(name, (*tabStock)[i]->name) != 0))
+    {
+        printf("Stock not found");
+        return NULL;
+    }
+    else
+    {
+        return ((*tabStock)[i]);
+    }
+}
 
 

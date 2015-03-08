@@ -35,6 +35,13 @@ int main(const int argc, const char *argv[])
     
     printTabActions(&tabStock, STOCKNBR);
     
+    StockHisto* historique;
+    int n = (int)ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
+    
+    for(int i = 0; i < n; i++)
+    {
+        printf("%3f\n", historique[i]->close);
+    }
     
     return 0;
 }
