@@ -10,7 +10,7 @@
 
 void printS(Stock stock)
 {
-    printf("%s\nID : %d\nopen : %f\n %f%%\nlast : %f\nVolume : %d\nHigh : %f\nBid : %f\nAsk : %f\nLow : %f\nPrev : %f\n\n",
+    printf("%s\nID : %d\nopen : %f\n%f%%\nlast : %f\nVolume : %d\nHigh : %f\nBid : %f\nAsk : %f\nLow : %f\nPrev : %f\n\n",
            stock->name, stock->id, stock->open, stock->pct, stock->last, stock->volume, stock->high, stock->bid, stock->ask, stock->low, stock->prev);
 }
 
