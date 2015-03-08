@@ -9,7 +9,10 @@
 #ifndef __trading__reseau__
 #define __trading__reseau__
 
-#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <curl/curl.h>
+#include <curl/easy.h>
 
 struct BufferStruct
 {

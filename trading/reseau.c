@@ -7,11 +7,6 @@
 //
 
 #include "reseau.h"
-#include <stdlib.h>
-#include <string.h>
-#include <curl/curl.h>
-#include <curl/easy.h>
-
 
 //Met le contenu de la page web dans la struct
 static size_t WriteMemoryCallback(void* ptr, size_t size, size_t nmemb, void* data)

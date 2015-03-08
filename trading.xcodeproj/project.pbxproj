@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE127B481AABCDBB00045BAB /* action.c in Sources */ = {isa = PBXBuildFile; fileRef = CE127B461AABCDBB00045BAB /* action.c */; };
 		CE2313F71AAB6A4900B721E8 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2313F61AAB6A4900B721E8 /* libcurl.4.dylib */; };
 		CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313F81AAB73FB00B721E8 /* reseau.c */; };
 		CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313FB1AAB770A00B721E8 /* parsing.c */; };
@@ -35,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE127B461AABCDBB00045BAB /* action.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = action.c; sourceTree = SOURCE_ROOT; };
+		CE127B471AABCDBB00045BAB /* action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = action.h; sourceTree = SOURCE_ROOT; };
 		CE2313F61AAB6A4900B721E8 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = ../../../../../opt/local/lib/libcurl.4.dylib; sourceTree = "<group>"; };
 		CE2313F81AAB73FB00B721E8 /* reseau.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reseau.c; sourceTree = "<group>"; };
 		CE2313F91AAB73FB00B721E8 /* reseau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reseau.h; path = trading/reseau.h; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		CE2313FE1AAB771000B721E8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				CE127B471AABCDBB00045BAB /* action.h */,
 				CE2313F91AAB73FB00B721E8 /* reseau.h */,
 				CE2313FC1AAB770A00B721E8 /* parsing.h */,
 			);
@@ -116,6 +120,7 @@
 				CEC9D8B01AAB1B5300E1CE93 /* main.c */,
 				CE2313F81AAB73FB00B721E8 /* reseau.c */,
 				CE2313FB1AAB770A00B721E8 /* parsing.c */,
+				CE127B461AABCDBB00045BAB /* action.c */,
 			);
 			name = Source;
 			path = trading;
@@ -196,6 +201,7 @@
 				CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */,
 				CEC9D8B11AAB1B5300E1CE93 /* main.c in Sources */,
 				CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */,
+				CE127B481AABCDBB00045BAB /* action.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
