@@ -44,7 +44,6 @@
 		CE127B4B1AACBABD00045BAB /* algoTechnique.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = algoTechnique.h; path = trading/algoTechnique.h; sourceTree = "<group>"; };
 		CE127B4C1AACBBBB00045BAB /* simulation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = simulation.c; sourceTree = "<group>"; };
 		CE127B4D1AACBBBB00045BAB /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simulation.h; path = trading/simulation.h; sourceTree = "<group>"; };
-		CE127B501AACE2B300045BAB /* BN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BN; sourceTree = "<group>"; };
 		CE2313F61AAB6A4900B721E8 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = ../../../../../opt/local/lib/libcurl.4.dylib; sourceTree = "<group>"; };
 		CE2313F81AAB73FB00B721E8 /* reseau.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reseau.c; sourceTree = "<group>"; };
 		CE2313F91AAB73FB00B721E8 /* reseau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reseau.h; path = trading/reseau.h; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 		CE127B4F1AACE29600045BAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE127B501AACE2B300045BAB /* BN */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

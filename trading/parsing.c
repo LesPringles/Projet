@@ -79,7 +79,10 @@ void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
 // renvoie la taille du tableau
 size_t ParseHisto(char *labelStock, char *URLCVS, StockHisto **historique)
 {
-    FILE *fp = fopen("/Users/user/Documents/Soutenance1/BN","r");
+    strcat(labelStock, ".txt");
+    char path[100] = "/Users/user/Documents/Soutenance1/resources/";
+    strcat(path, labelStock);
+    FILE *fp = fopen(path,"r");
     char date[20];
     char indice[20];
     float open, high, low, close;
