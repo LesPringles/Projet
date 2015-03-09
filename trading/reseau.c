@@ -39,7 +39,12 @@ char* LectureWeb(char* AddURL)
     curl_easy_setopt(myHandle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
     curl_easy_setopt(myHandle, CURLOPT_WRITEDATA, (void*)&LectureLC);
     curl_easy_setopt(myHandle, CURLOPT_URL, AddURL);
-    result = curl_easy_perform(myHandle);  //voir la doc pour une gestion minimal des erreurs
+    //voir la doc pour une gestion minimal des erreurs
+    if ((result = curl_easy_perform(myHandle)) != 0)
+    {
+        printf("Pas de connection internet\n");
+        return NULL; // pas de connection internet
+    }
     curl_easy_cleanup(myHandle);
     
     if(result!=0)

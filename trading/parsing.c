@@ -28,17 +28,30 @@ void *pThreadParsing(void *tabStock)
 
 void NameID(Stock **tabStock)
 {
-    char *chaineHtml = malloc(sizeof(char) * TAILLEPAGEWEB);
-    strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
-    IdentificationID(chaineHtml, tabStock, STOCKNBR);
-    free(chaineHtml);
+    char *sourceHTML = NULL;
+    while (sourceHTML == NULL)
+    {
+        sourceHTML = LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40");
+        if (sourceHTML)
+            IdentificationID(sourceHTML, tabStock, STOCKNBR);
+        else
+            sleep(5);
+    }
+    free(sourceHTML);
 }
 
 void Parsing(Stock **tabStock)
 {
-    char chaine[50000];  //À changer selon la taille du flux ajax besoin
-    strcpy(chaine, LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p")); // adresse html du flux ajax du CAC40
-    ParseAjax(chaine, tabStock, STOCKNBR);
+    char *source = NULL;
+    while (source == NULL)
+    {
+        source = LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p");
+        if (source)
+            ParseAjax(source, tabStock, STOCKNBR);
+        else
+            sleep(5);
+    }
+    free(source);
 }
 
 // fonciton de parsing du flux ajax. Prend en parametre la string du flux
