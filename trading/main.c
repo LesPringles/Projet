@@ -12,18 +12,11 @@
 #include <string.h>
 #include "reseau.h"
 #include "parsing.h"
+#include "interface.h"
 #define TAILLEPAGEWEB 1000000
 #define STOCKNBR 41
 
-void Init(Stock **tabStock)
-{
-    char *chaineHtml = malloc(sizeof(char) * TAILLEPAGEWEB);
-    strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
-    IdentificationID(chaineHtml, tabStock, STOCKNBR);
-    free(chaineHtml);
-}
-
-int main(const int argc, const char *argv[])
+int main(int argc, char *argv[])
 {
     char chaine[50000];  //À changer selon la taille du flux ajax besoin
     strcpy(chaine, LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p")); // adresse html du flux ajax du CAC40
@@ -33,15 +26,12 @@ int main(const int argc, const char *argv[])
     ParseAjax(chaine, &tabStock, STOCKNBR);
     Init(&tabStock);
     
-    printTabActions(&tabStock, STOCKNBR);
+    // printTabActions(&tabStock, STOCKNBR);
     
     StockHisto* historique;
     int n = (int)ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
     
-    for(int i = 0; i < n; i++)
-    {
-        printf("%3f\n", historique[i]->close);
-    }
+    interface(argc, argv);
     
     return 0;
 }

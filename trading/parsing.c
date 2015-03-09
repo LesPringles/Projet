@@ -8,6 +8,14 @@
 
 #include "parsing.h"
 
+void Init(Stock **tabStock)
+{
+    char *chaineHtml = malloc(sizeof(char) * TAILLEPAGEWEB);
+    strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
+    IdentificationID(chaineHtml, tabStock, STOCKNBR);
+    free(chaineHtml);
+}
+
 // fonciton de parsing du flux ajax. Prend en parametre la string du flux
 void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
 {

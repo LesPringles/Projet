@@ -13,6 +13,9 @@
 		CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313F81AAB73FB00B721E8 /* reseau.c */; };
 		CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2313FB1AAB770A00B721E8 /* parsing.c */; };
 		CE26FF4C1AAD2508000F1862 /* action.c in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF4A1AAD2508000F1862 /* action.c */; };
+		CEB26B381AAD276600F781FD /* Momentum.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B361AAD276600F781FD /* Momentum.c */; };
+		CEB26B391AAD276600F781FD /* Points Pivots.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B371AAD276600F781FD /* Points Pivots.c */; };
+		CEB26B3B1AAD2F8E00F781FD /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B3A1AAD2F8E00F781FD /* interface.c */; };
 		CEC9D8B11AAB1B5300E1CE93 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D8B01AAB1B5300E1CE93 /* main.c */; };
 		CEDB0E721AAB30BF0048667C /* libatk-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB0E711AAB30BF0048667C /* libatk-1.0.0.dylib */; };
 		CEDB0E741AAB30DC0048667C /* libgdk-x11-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB0E731AAB30DC0048667C /* libgdk-x11-2.0.0.dylib */; };
@@ -49,6 +52,10 @@
 		CE2313FC1AAB770A00B721E8 /* parsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parsing.h; path = trading/parsing.h; sourceTree = "<group>"; };
 		CE26FF4A1AAD2508000F1862 /* action.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = action.c; sourceTree = "<group>"; };
 		CE26FF4B1AAD2508000F1862 /* action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = action.h; path = trading/action.h; sourceTree = "<group>"; };
+		CEB26B361AAD276600F781FD /* Momentum.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Momentum.c; sourceTree = "<group>"; };
+		CEB26B371AAD276600F781FD /* Points Pivots.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "Points Pivots.c"; sourceTree = "<group>"; };
+		CEB26B3A1AAD2F8E00F781FD /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interface.c; sourceTree = "<group>"; };
+		CEB26B3C1AAD2FAC00F781FD /* interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = interface.h; path = trading/interface.h; sourceTree = "<group>"; };
 		CEC9D8AD1AAB1B5300E1CE93 /* trading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = trading; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D8B01AAB1B5300E1CE93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CEDB0E711AAB30BF0048667C /* libatk-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libatk-1.0.0.dylib"; path = "../../../../../opt/local/lib/libatk-1.0.0.dylib"; sourceTree = "<group>"; };
@@ -106,6 +113,7 @@
 				CE2313F91AAB73FB00B721E8 /* reseau.h */,
 				CE2313FC1AAB770A00B721E8 /* parsing.h */,
 				CE127B4B1AACBABD00045BAB /* algoTechnique.h */,
+				CEB26B3C1AAD2FAC00F781FD /* interface.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -133,6 +141,9 @@
 		CEC9D8AF1AAB1B5300E1CE93 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEB26B3A1AAD2F8E00F781FD /* interface.c */,
+				CEB26B361AAD276600F781FD /* Momentum.c */,
+				CEB26B371AAD276600F781FD /* Points Pivots.c */,
 				CE26FF4A1AAD2508000F1862 /* action.c */,
 				CE127B491AACB8A900045BAB /* MMA.c */,
 				CEC9D8B01AAB1B5300E1CE93 /* main.c */,
@@ -217,11 +228,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2313FA1AAB73FB00B721E8 /* reseau.c in Sources */,
+				CEB26B3B1AAD2F8E00F781FD /* interface.c in Sources */,
 				CEC9D8B11AAB1B5300E1CE93 /* main.c in Sources */,
+				CEB26B391AAD276600F781FD /* Points Pivots.c in Sources */,
 				CE127B4E1AACBBBB00045BAB /* simulation.c in Sources */,
 				CE26FF4C1AAD2508000F1862 /* action.c in Sources */,
 				CE127B4A1AACB8A900045BAB /* MMA.c in Sources */,
 				CE2313FD1AAB770A00B721E8 /* parsing.c in Sources */,
+				CEB26B381AAD276600F781FD /* Momentum.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

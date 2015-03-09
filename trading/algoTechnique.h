@@ -9,6 +9,8 @@
 #ifndef trading_algoTechnique_h
 #define trading_algoTechnique_h
 
-float MMA(float jour[], int nbjour);
+#include "action.h"
+
+float MMA(StockHisto **tabstock, int i, int nbjour);
 
 #endif
