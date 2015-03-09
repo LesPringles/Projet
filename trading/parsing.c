@@ -23,7 +23,7 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
     int id = 0;
     float open, pct, last, high, ask, low, bid, prev;
     int volume = 0;
-    char time[8];
+    char time[10];
     
     *tabStock = malloc(sizeof(Stock) * nbraction);
     
@@ -31,7 +31,8 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
     while (n < nbraction) // le flux ajax contient aussi la valeur du CAC40
     {
         // parsing du flux ajax
-        sscanf(ptr, "\"%d\" :{\"open\":\"%f\",\"time\":\"%5s\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"},", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev);
+        sscanf(ptr, "\"%d\" :{\"open\":\"%f\",\"time\":\"%[0-9:\\]\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"},", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev);
+        
         
         (*tabStock)[n] = malloc(sizeof(struct stock));
         

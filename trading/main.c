@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
     ParseAjax(chaine, &tabStock, STOCKNBR);
     Init(&tabStock);
     
-    // printTabActions(&tabStock, STOCKNBR);
+    printTabActions(&tabStock, STOCKNBR);
     
     StockHisto* historique;
-    int n = (int)ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
+    ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
     
-    interface(argc, argv);
+    // interface(argc, argv);
     
     return 0;
 }
