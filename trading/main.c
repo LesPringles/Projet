@@ -24,10 +24,10 @@ int main(int argc, char *argv[])
     StockHisto* historique;
     ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
     
-    // interface(argc, argv);
+    interface(argc, argv);
     // cette fonction est bloquante, les lignes de codes après sont executées apres la fermeture de l'interface
     
-    pthread_join (thPars, NULL);
+    pthread_cancel(thPars);
     
     return EXIT_SUCCESS;
 }

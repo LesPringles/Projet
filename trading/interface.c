@@ -100,7 +100,7 @@ void interface(int argc, char **argv)
 
 	/* Création des contents*/
 	pElement[0] = gtk_label_new(Texte);
-	pElement[1] = gtk_image_new_from_file("/Users/user/Documents/Soutenance1/resources/graphe.jpg");
+	pElement[1] = gtk_image_new_from_file("./resources/graphe.jpg");
 //	g_signal_connect(G_OBJECT(pElement[3]), "clicked", G_CALLBACK(mafonction), pElement[0]);
 	pElement[2] = gtk_button_new_with_label("menu déroulant");
 
