@@ -4,7 +4,8 @@
 CC=gcc
 CFLAGS= -W -Wall -Wextra -std=gnu99
 GTK= `pkg-config --cflags --libs gtk+-2.0`
-CURL= `curl-config --cflags`
+CURL= `curl-config --cflags --libs`
+LDFLAGS= $(CURL) $(GTK)
 EXEC=trading
 .PHONY: all clean
 # avoid calling make without option
@@ -12,19 +13,13 @@ EXEC=trading
 all: $(EXEC)
 
 $(EXEC): interface.o parsing.o action.o reseau.o main.c
-	$(CC) $(CFLAGS) -o $@ $^ $(GTK) 
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) 
 
-parsing.o: parsing.c reseau.o action.o
-	$(CC) $(CFLAGS) -o $@ -c $^ 
+parsing.o: reseau.o action.o parsing.c
+	$(CC) $(CFLAGS) -o $@ -c $^  
 
-reseau.o: reseau.c
-	$(CC) $(CFLAGS) $(CURL) -o $@ -c $^ -lcurl
-
-interface.o: interface.c
-	$(CC) $(CFLAGS) -o $@ -c $^ $(GTK)
-
-action.o: action.c
-	$(CC) $(CFLAGS) -o $@ -c $^
+%.o: %.c 
+	$(CC) -o $@ -c $< $(LDFLAGS)
 
 clean::
 	rm -f *~ *.o

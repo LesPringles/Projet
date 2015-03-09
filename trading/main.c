@@ -6,11 +6,6 @@
 //  Copyright (c) 2015 Charles. All rights reserved.
 //
 
-#include <gtk/gtk.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "reseau.h"
 #include "parsing.h"
 #include "interface.h"
 #define TAILLEPAGEWEB 1000000
