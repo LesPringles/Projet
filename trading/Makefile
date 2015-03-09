@@ -2,7 +2,7 @@
 
 # Define compiler and options
 CC=gcc
-CFLAGS= -W -Wall -Wextra -std=gnu99
+CFLAGS= -W -Wall -Wextra -std=c99
 GTK= `pkg-config --cflags --libs gtk+-2.0`
 CURL= `curl-config --cflags --libs`
 LDFLAGS= $(CURL) $(GTK)
@@ -19,7 +19,7 @@ parsing.o: reseau.o action.o parsing.c
 	$(CC) $(CFLAGS) -o $@ -c $^  
 
 %.o: %.c 
-	$(CC) -o $@ -c $< $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ -c $< $(LDFLAGS)
 
 clean::
 	rm -f *~ *.o
