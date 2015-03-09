@@ -8,12 +8,37 @@
 
 #include "parsing.h"
 
-void Init(Stock **tabStock)
+void InitParsing(Stock **tabStock)
+{
+    Parsing(tabStock);
+    NameID(tabStock);
+}
+
+void *pThreadParsing(void *tabStock)
+{
+    while (1)
+    {
+        Parsing(tabStock);
+        printf("Update !\n");
+        sleep(1);
+    }
+    
+    return NULL;
+}
+
+void NameID(Stock **tabStock)
 {
     char *chaineHtml = malloc(sizeof(char) * TAILLEPAGEWEB);
     strcpy(chaineHtml, LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40"));
     IdentificationID(chaineHtml, tabStock, STOCKNBR);
     free(chaineHtml);
+}
+
+void Parsing(Stock **tabStock)
+{
+    char chaine[50000];  //À changer selon la taille du flux ajax besoin
+    strcpy(chaine, LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p")); // adresse html du flux ajax du CAC40
+    ParseAjax(chaine, tabStock, STOCKNBR);
 }
 
 // fonciton de parsing du flux ajax. Prend en parametre la string du flux
@@ -25,7 +50,8 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
     int volume = 0;
     char time[10];
     
-    *tabStock = malloc(sizeof(Stock) * nbraction);
+    if (*tabStock == NULL)
+        *tabStock = calloc(nbraction, sizeof(Stock) * nbraction);
     
     unsigned n = 0;
     while (n < nbraction) // le flux ajax contient aussi la valeur du CAC40
@@ -33,11 +59,14 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
         // parsing du flux ajax
         sscanf(ptr, "\"%d\" :{\"open\":\"%f\",\"time\":\"%[0-9:\\]\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"},", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev);
         
+        if ((*tabStock)[n] == NULL)
+        {
+            (*tabStock)[n] = calloc(1, sizeof(struct stock));
+            (*tabStock)[n]->id = id;
+            (*tabStock)[n]->open = open;
+            (*tabStock)[n]->prev = prev;
+        }
         
-        (*tabStock)[n] = malloc(sizeof(struct stock));
-        
-        (*tabStock)[n]->id = id;
-        (*tabStock)[n]->open = open;
         (*tabStock)[n]->pct = pct;
         (*tabStock)[n]->last = last;
         (*tabStock)[n]->volume = volume;
@@ -45,13 +74,11 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
         (*tabStock)[n]->ask = ask;
         (*tabStock)[n]->low = low;
         (*tabStock)[n]->bid = bid;
-        (*tabStock)[n]->prev = prev;
         
         ptr = strstr(ptr, "},") + 2;
         // printf("%d \n%f\n\n", id, open);
         n++;
     }
-    
 }
 
 // Identification du ID des actions pour avoir le nom correspondant
@@ -89,7 +116,7 @@ void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
 size_t ParseHisto(char *labelStock, char *URLCVS, StockHisto **historique)
 {
     strcat(labelStock, ".txt");
-    char path[100] = "/Users/user/Documents/Soutenance1/resources/";
+    char path[100] = "./resources/";
     strcat(path, labelStock);
     FILE *fp = fopen(path,"r");
     char date[20];

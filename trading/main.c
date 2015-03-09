@@ -13,21 +13,22 @@
 
 int main(int argc, char *argv[])
 {
-    char chaine[50000];  //À changer selon la taille du flux ajax besoin
-    strcpy(chaine, LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p")); // adresse html du flux ajax du CAC40
-    
-    Stock *tabStock;
-    
-    ParseAjax(chaine, &tabStock, STOCKNBR);
-    Init(&tabStock);
+    Stock *tabStock = NULL;
+    InitParsing(&tabStock); // fonction qui fait le cafe
     
     printTabActions(&tabStock, STOCKNBR);
+    
+    pthread_t thPars = 0;
+    pthread_create(&thPars, NULL, pThreadParsing, &tabStock);
     
     StockHisto* historique;
     ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
     
     // interface(argc, argv);
+    // cette fonction est bloquante, les lignes de codes après sont executées apres la fermeture de l'interface
     
-    return 0;
+    pthread_join (thPars, NULL);
+    
+    return EXIT_SUCCESS;
 }
 
