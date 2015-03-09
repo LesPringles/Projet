@@ -67,4 +67,16 @@ Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr)
     }
 }
 
+void FreeTabStock(Stock **tabStock, size_t n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        free((*tabStock)[i]);
+    }
+    free((*tabStock));
+}
+
+
+
+
 

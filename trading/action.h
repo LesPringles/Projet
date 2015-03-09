@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 typedef struct stock *Stock;
 struct stock
@@ -41,5 +42,6 @@ void printSTK(int stockId, Stock **tabStock, size_t stkNbr);
 void printTabActions(Stock **tabAction, size_t nbrAction);
 Stock getSTKbyID(int stockId, Stock **tabStock, size_t stkNbr);
 Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr);
+void FreeTabStock(Stock **tabStock, size_t n);
 
 #endif /* defined(__trading__action__) */

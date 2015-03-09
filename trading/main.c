@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     // cette fonction est bloquante, les lignes de codes après sont executées apres la fermeture de l'interface
     
     pthread_cancel(thPars);
+    FreeTabStock(&tabStock, STOCKNBR);
     
     return EXIT_SUCCESS;
 }
