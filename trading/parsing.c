@@ -8,7 +8,7 @@
 
 #include "parsing.h"
 
-pthread_t InitParsing(TabStock *tabStock, char *indice)
+pthread_t InitParsing(TabStock *tabStock, char *indice, int time)
 {
     FILE* fp = fopen("/Users/user/Documents/Projet/trading/resources/URL", "r");
     if (fp == NULL)
@@ -52,7 +52,7 @@ pthread_t InitParsing(TabStock *tabStock, char *indice)
         struct args_pthread *args = malloc(sizeof(struct args_pthread));
         args->URL = ajaxURL;
         args->tabStock = tabStock;
-        args->time = 1;
+        args->time = time;
         
         Parsing(tabStock, ajaxURL);
         NameID(tabStock, nameIdURL);
@@ -107,7 +107,6 @@ void Parsing(TabStock *tabStock, char *URL)
     free(source);
 }
 
-// fonciton de parsing du flux ajax. Prend en parametre la string du flux
 void ParseAjax(char *ajaxStr, TabStock *tabStock)
 {
     char *ptr = ajaxStr + 65;
@@ -139,9 +138,6 @@ void ParseAjax(char *ajaxStr, TabStock *tabStock)
     }
 }
 
-// Identification du ID des actions pour avoir le nom correspondant
-// Identification fait une seule fois a partir d'un parsing de la page HTML qui utilise le flux ajax
-// Prend donc en parametre le code source de la page HTML sous forme de texte
 void IdentificationID(char *htmlStr, TabStock *tabStock)
 {
     int n = 0;

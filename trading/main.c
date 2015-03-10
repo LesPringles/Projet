@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
     TabStock tabStock;
-    pthread_t pth = InitParsing(&tabStock, "CAC40"); // fonction qui fait le cafe
+    pthread_t updateCAC40 = InitParsing(&tabStock, "CAC40", 1); // fonction qui fait le cafe
     
     printTabActions(&tabStock);
     
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     interface(argc, argv);
     // cette fonction est bloquante, les lignes de codes après sont executées apres la fermeture de l'interface
     
-    pthread_cancel(pth);
+    pthread_cancel(updateCAC40);
     FreeTabStock(&tabStock);
     
     return EXIT_SUCCESS;
