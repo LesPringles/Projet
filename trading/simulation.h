@@ -10,24 +10,24 @@
 #define __trading__simulation__
 
 #include <stdio.h>
-#include <stdlib.h>
+#include "action.h"
 
-typedef struct stock Stock;
-struct stock
+typedef struct SimStock SimStock;
+struct SimStock
 {
     int stockId;
     float price; // le prix d'achat
     int nbr;
 };
 
-typedef struct wallet wallet;
+typedef struct wallet Wallet;
 struct wallet
 {
-    float argent;
-    short unsigned StkOwn;
-    Stock* stock;
+    float money;
+    short unsigned stkOwn;
+    SimStock* stock;
 };
 
-int ReadWallet(wallet *wallet);
+int ReadWallet(Wallet *wallet);
 
 #endif /* defined(__trading__simulation__) */

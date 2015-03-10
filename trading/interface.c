@@ -1,33 +1,35 @@
 #include "interface.h"
 #define UTF8(string) g_locale_to_utf8(string, -1, NULL, NULL, NULL)
 
-gchar* utf8(char *police, char *color, char *size, char *string){
-char tab[100] = "<span face=\"";
-strcat(tab, police);
-strcat(tab, "\" foreground=\"");
-strcat(tab, color);
-strcat(tab, "\" size=\"");
-strcat(tab, size);
-strcat(tab, "\">");
-strcat(tab, string);
-strcat(tab, "</span>\n");
-return UTF8(tab);
-}
-
-gchar* mot(char *string[]){
-char tab[100]="";
-for(int i = 0; i < 12; i++)
+gchar* utf8(char *police, char *color, char *size, char *string)
 {
-strcat(tab, string[i]);
-if(i % 2 == 0)
-strcat(tab, " :  ");
-else
-strcat(tab, "     ");
-if(i == 5 || i == 11 || i == 17)
-strcat(tab, "\n\n");
+    char tab[100] = "<span face=\"";
+    strcat(tab, police);
+    strcat(tab, "\" foreground=\"");
+    strcat(tab, color);
+    strcat(tab, "\" size=\"");
+    strcat(tab, size);
+    strcat(tab, "\">");
+    strcat(tab, string);
+    strcat(tab, "</span>\n");
+    return UTF8(tab);
 }
 
-return UTF8(tab);
+gchar* mot(char *string[])
+{
+    char tab[100]="";
+    for(int i = 0; i < 12; i++)
+    {
+        strcat(tab, string[i]);
+        if(i % 2 == 0)
+            strcat(tab, " :  ");
+        else
+            strcat(tab, "     ");
+        if(i == 5 || i == 11 || i == 17)
+            strcat(tab, "\n\n");
+    }
+    
+    return UTF8(tab);
 }
 
 /*void set_item_menu(GtkWidget* elem, char *string[]){
@@ -53,7 +55,7 @@ void interface(int argc, char **argv)
 	gchar* Texte = NULL;
 	gchar* Valeurs = NULL;
 	char Action[20] = "Nom l'Action";
-	char *string[12]; 
+	char *string[12];
 	string[0]="mma150";
 	string[1]="40";
 	string[2]="mme";

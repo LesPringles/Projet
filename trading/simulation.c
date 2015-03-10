@@ -14,46 +14,46 @@
 // Doit écrire le tout dans un fichier texte externe.
 
 //si ReadWallet renvoie vraie, alors la simulation existe deja
-int ReadWallet(wallet *wallet)
+int ReadWallet(Wallet *wallet)
 {
     // l'argent posseder
     // l'id de l'action
     // le nombre d'action
     // le prix d'achat
-    float argent = .0;
-    int StkOwn = 0;
+    float money = .0;
+    int stkOwn = 0;
     if (wallet == NULL)
     {
         wallet = malloc(sizeof(wallet));
-        wallet->argent = .0;
-        wallet->StkOwn = 0;
+        wallet->money = .0;
+        wallet->stkOwn = 0;
         wallet->stock = NULL;
     }
     
-    FILE* fp = fopen("simulation/portefeuille", "r");
+    FILE* fp = fopen("./simulation/portefeuille", "r");
     if (fp)
     {
-        // le fichier exist
+        // le fichier existe
         // la simulation existe deja
         // lire le fichier
-        fscanf(fp, "%f\n%d\n", &argent, &StkOwn);
+        fscanf(fp, "%f\n%d\n", &money, &stkOwn);
         
-        wallet->argent = argent;
-        wallet->StkOwn = StkOwn;
-        if (StkOwn == 0)
+        wallet->money = money;
+        wallet->stkOwn = stkOwn;
+        if (stkOwn == 0)
             return 1;
         
-        wallet->stock = malloc(sizeof(Stock) * StkOwn);
+        wallet->stock = malloc(sizeof(Stock) * stkOwn);
         
         int i = 0;
         while((fscanf(fp, "%d;%f;%d\n", &(wallet->stock[i].stockId), &(wallet->stock[i].price), &(wallet->stock[i].nbr)) != EOF)
-              && i < StkOwn)
+              && i < stkOwn)
         {
             i++;
         }
         fclose(fp);
         
-        return 1;
+        return 0;
     }
     else
     {
@@ -61,19 +61,45 @@ int ReadWallet(wallet *wallet)
         // proposer le debut d'une simulation
         // creation du fichier
         
-        return -1;
+        // demande a l'utilisateur les parametres initiaux du portefeuille
+        
+        return 1;
     }
     
 }
 
-void Achat()
+void Initwallet(Wallet *wallet, float money)
 {
+    FILE* fp;
+    fp = fopen("./simulation/portefeuille", "a");
     
+    wallet = calloc(1, sizeof(struct wallet));
+    wallet->money = money;
+    wallet->stkOwn = 0;
+    wallet->stock = NULL;
     
+    char *string;
+    asprintf(&string, "%f\n%d\n", money, 0);
+    fputs(string, fp);
+    free(string);
+}
+
+void Achat(Wallet *wallet, Stock stock, int nbrStock)
+{
+    if (wallet != NULL)
+    {
+        if (stock->last * nbrStock <= wallet->money)
+        {
+            
+            
+        }
+        
+    }
 }
 
 void Vente()
 {
+    
     
     
 }

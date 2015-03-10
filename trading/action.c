@@ -14,66 +14,65 @@ void printS(Stock stock)
            stock->name, stock->label, stock->id, stock->open, stock->pct, stock->last, stock->volume, stock->high, stock->bid, stock->ask, stock->low, stock->prev);
 }
 
-void printSTK(int stockId, Stock **tabStock, size_t stkNbr)
+void printSTK(int stockId, TabStock *tabStock)
 {
-    Stock stock = getSTKbyID(stockId, tabStock, stkNbr);
+    Stock stock = getSTKbyID(stockId, tabStock);
     printS(stock);
 }
 
-void printTabActions(Stock **tabAction, size_t nbrAction)
+void printTabActions(TabStock *tabStock)
 {
-    for (int i = 0; i < nbrAction; i++)
+    for (int i = 0; i < tabStock->size ; i++)
     {
-        printS((*tabAction)[i]);
+        printS(&(tabStock->tab[i]));
     }
 }
 
 
-Stock getSTKbyID(int stockId, Stock **tabStock, size_t stkNbr)
+Stock getSTKbyID(int stockId, TabStock *tabStock)
 {
     unsigned i = 0;
-    while (i < stkNbr && (*tabStock)[i]->id != stockId)
+    while (i < tabStock->size && tabStock->tab[i].id != stockId)
     {
         i++;
     }
     
-    if ((*tabStock)[i] == NULL || (*tabStock)[i]->id != stockId)
+    if (i >= tabStock->size)
+    {
+        printf("Stock not found\n");
+        return NULL;
+    }
+    else
+    {
+        return &(tabStock->tab[i]);
+    }
+}
+
+Stock getStkByName(char* name, TabStock *tabStock)
+{
+    unsigned i = 0;
+    while (i < tabStock->size && (strcmp(name, tabStock->tab[i].name) != 0))
+    {
+        i++;
+    }
+    
+    if (i >= tabStock->size)
     {
         printf("Stock not found");
         return NULL;
     }
     else
     {
-        return ((*tabStock)[i]);
+        return &(tabStock->tab[i]);
     }
 }
 
-Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr)
+void FreeTabStock(TabStock *tabStock)
 {
-    unsigned i = 0;
-    while (i < stkNbr && (strcmp(name, (*tabStock)[i]->name) != 0))
+    if (tabStock->tab != NULL)
     {
-        i++;
+        free(tabStock->tab);
     }
-    
-    if ((*tabStock)[i] == NULL || (strcmp(name, (*tabStock)[i]->name) != 0))
-    {
-        printf("Stock not found");
-        return NULL;
-    }
-    else
-    {
-        return ((*tabStock)[i]);
-    }
-}
-
-void FreeTabStock(Stock **tabStock, size_t n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        free((*tabStock)[i]);
-    }
-    free((*tabStock));
 }
 
 

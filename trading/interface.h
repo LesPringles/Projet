@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <string.h>
+#include "action.h"
 
 void interface(int argc, char **argv);
 

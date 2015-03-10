@@ -14,6 +14,17 @@
 #include <stdlib.h>
 
 typedef struct stock *Stock;
+typedef struct tabStock TabStock;
+typedef struct histo *StockHisto;
+
+
+struct tabStock
+{
+    size_t size;
+    struct stock *tab;
+};
+
+
 struct stock
 {
     int id;
@@ -30,7 +41,6 @@ struct stock
     float prev;
 };
 
-typedef struct histo *StockHisto;
 struct histo
 {
     float open, high, low, close;
@@ -38,10 +48,10 @@ struct histo
 };
 
 void printS(Stock stock);
-void printSTK(int stockId, Stock **tabStock, size_t stkNbr);
-void printTabActions(Stock **tabAction, size_t nbrAction);
-Stock getSTKbyID(int stockId, Stock **tabStock, size_t stkNbr);
-Stock getStkByName(char* name, Stock **tabStock, size_t stkNbr);
-void FreeTabStock(Stock **tabStock, size_t n);
+void printSTK(int stockId, TabStock *tabStock);
+void printTabActions(TabStock *tabAction);
+Stock getSTKbyID(int stockId, TabStock *tabStock);
+Stock getStkByName(char* name, TabStock *tabStock);
+void FreeTabStock(TabStock *tabStock);
 
 #endif /* defined(__trading__action__) */

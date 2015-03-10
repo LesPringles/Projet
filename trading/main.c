@@ -13,22 +13,19 @@
 
 int main(int argc, char *argv[])
 {
-    Stock *tabStock = NULL;
-    InitParsing(&tabStock); // fonction qui fait le cafe
+    TabStock tabStock;
+    pthread_t pth = InitParsing(&tabStock, "CAC40"); // fonction qui fait le cafe
     
-    printTabActions(&tabStock, STOCKNBR);
-    
-    pthread_t thPars = 0;
-    pthread_create(&thPars, NULL, pThreadParsing, &tabStock);
+    printTabActions(&tabStock);
     
     StockHisto* historique;
-    ParseHisto((getStkByName("BNP Paribas", &tabStock, STOCKNBR))->label, NULL, &historique);
+    ParseHisto((getStkByName("BNP Paribas", &tabStock))->label, NULL, &historique);
     
     interface(argc, argv);
     // cette fonction est bloquante, les lignes de codes après sont executées apres la fermeture de l'interface
     
-    pthread_cancel(thPars);
-    FreeTabStock(&tabStock, STOCKNBR);
+    pthread_cancel(pth);
+    FreeTabStock(&tabStock);
     
     return EXIT_SUCCESS;
 }

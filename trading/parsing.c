@@ -8,46 +8,99 @@
 
 #include "parsing.h"
 
-void InitParsing(Stock **tabStock)
+pthread_t InitParsing(TabStock *tabStock, char *indice)
 {
-    Parsing(tabStock);
-    NameID(tabStock);
+    FILE* fp = fopen("/Users/user/Documents/Projet/trading/resources/URL", "r");
+    if (fp == NULL)
+    {
+        printf("Fichier URL manquant\n");
+        exit(EXIT_FAILURE);
+        return NULL;
+    }
+    else
+    {
+        long f_size;
+        char *URLs =NULL;
+        char *ajaxURL = malloc(sizeof(char) * 100); // URL utilisé par le pThread plus tard, la portee doit etre plus grande que cette fonction
+        char nameIdURL[100];
+        char *ptr = NULL;
+        int nbStock = 0;
+        
+        fseek(fp, 0, SEEK_END);
+        f_size = ftell(fp);
+        fseek(fp, 0, SEEK_SET);
+        URLs = malloc(sizeof(char) * f_size);
+        fread(URLs, 1, f_size, fp);
+        char searchIndice[10];
+        
+        do
+        {
+            ptr = strstr(URLs, "Indice = ");
+            ptr += 9;
+            sscanf(ptr, "%10[0-9A-Z]\n%d", searchIndice, &nbStock);
+
+        } while (strcmp(searchIndice, indice) != 0);
+        
+        tabStock->size = (size_t)nbStock;
+        tabStock->tab = calloc(tabStock->size, sizeof(struct stock) * tabStock->size);
+        
+        ptr = strstr(ptr, "URL Ajax = ");
+        sscanf(ptr, "URL Ajax = %s[ˆ\n]\n", ajaxURL);
+        ptr = strstr(ptr, "URL nameID = ");
+        sscanf(ptr, "URL nameID = %s[ˆ\n]\n", nameIdURL);
+        
+        struct args_pthread *args = malloc(sizeof(struct args_pthread));
+        args->URL = ajaxURL;
+        args->tabStock = tabStock;
+        args->time = 1;
+        
+        Parsing(tabStock, ajaxURL);
+        NameID(tabStock, nameIdURL);
+        
+        pthread_t thPars = 0;
+        pthread_create(&thPars, NULL, pThreadParsing, (void*)args);
+        
+        fclose(fp);
+        
+        return thPars;
+    }
 }
 
-void *pThreadParsing(void *tabStock)
+void *pThreadParsing(void *_args)
 {
+    struct args_pthread *args = (struct args_pthread *)_args;
     while (1)
     {
-        Parsing(tabStock);
+        sleep(args->time);
+        Parsing(args->tabStock, args->URL);
         printf("Update !\n");
-        sleep(1);
     }
     
     return NULL;
 }
 
-void NameID(Stock **tabStock)
+void NameID(TabStock *tabStock, char *URL)
 {
     char *sourceHTML = NULL;
     while (sourceHTML == NULL)
     {
-        sourceHTML = LectureWeb("http://www.lecho.be/bourses/euronext-paris/cac40");
+        sourceHTML = LectureWeb(URL);
         if (sourceHTML)
-            IdentificationID(sourceHTML, tabStock, STOCKNBR);
+            IdentificationID(sourceHTML, tabStock);
         else
             sleep(5);
     }
     free(sourceHTML);
 }
 
-void Parsing(Stock **tabStock)
+void Parsing(TabStock *tabStock, char *URL)
 {
     char *source = NULL;
     while (source == NULL)
     {
-        source = LectureWeb("http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p");
+        source = LectureWeb(URL);
         if (source)
-            ParseAjax(source, tabStock, STOCKNBR);
+            ParseAjax(source, tabStock);
         else
             sleep(5);
     }
@@ -55,7 +108,7 @@ void Parsing(Stock **tabStock)
 }
 
 // fonciton de parsing du flux ajax. Prend en parametre la string du flux
-void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
+void ParseAjax(char *ajaxStr, TabStock *tabStock)
 {
     char *ptr = ajaxStr + 65;
     int id = 0;
@@ -63,30 +116,22 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
     int volume = 0;
     char time[10];
     
-    if (*tabStock == NULL)
-        *tabStock = calloc(nbraction, sizeof(Stock) * nbraction);
-    
     unsigned n = 0;
-    while (n < nbraction) // le flux ajax contient aussi la valeur du CAC40
+    while (n < tabStock->size) // le flux ajax contient aussi la valeur du CAC40
     {
         // parsing du flux ajax
         sscanf(ptr, "\"%d\" :{\"open\":\"%f\",\"time\":\"%[0-9:\\]\",\"pct\":\"%f\",\"last\":\"%f\",\"volume\":%d,\"high\":\"%f\",\"ask\":\"%f\",\"low\":\"%f\",\"bid\":\"%f\",\"prev\":\"%f\"},", &id, &open, time, &pct, &last, &volume, &high, &ask, &low, &bid, &prev);
         
-        if ((*tabStock)[n] == NULL)
-        {
-            (*tabStock)[n] = calloc(1, sizeof(struct stock));
-            (*tabStock)[n]->id = id;
-            (*tabStock)[n]->open = open;
-            (*tabStock)[n]->prev = prev;
-        }
-        
-        (*tabStock)[n]->pct = pct;
-        (*tabStock)[n]->last = last;
-        (*tabStock)[n]->volume = volume;
-        (*tabStock)[n]->high = high;
-        (*tabStock)[n]->ask = ask;
-        (*tabStock)[n]->low = low;
-        (*tabStock)[n]->bid = bid;
+        tabStock->tab[n].id = id;
+        tabStock->tab[n].open = open;
+        tabStock->tab[n].prev = prev;
+        tabStock->tab[n].pct = pct;
+        tabStock->tab[n].last = last;
+        tabStock->tab[n].volume = volume;
+        tabStock->tab[n].high = high;
+        tabStock->tab[n].ask = ask;
+        tabStock->tab[n].low = low;
+        tabStock->tab[n].bid = bid;
         
         ptr = strstr(ptr, "},") + 2;
         // printf("%d \n%f\n\n", id, open);
@@ -97,7 +142,7 @@ void ParseAjax(char *ajaxStr, Stock **tabStock, size_t nbraction)
 // Identification du ID des actions pour avoir le nom correspondant
 // Identification fait une seule fois a partir d'un parsing de la page HTML qui utilise le flux ajax
 // Prend donc en parametre le code source de la page HTML sous forme de texte
-void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
+void IdentificationID(char *htmlStr, TabStock *tabStock)
 {
     int n = 0;
     char *ptr = strstr(htmlStr, "<h1>");
@@ -106,7 +151,7 @@ void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
     int id = 0;
     Stock stock = NULL;
     
-    while (n < stockNbr - 1)
+    while (n < tabStock->size - 1)
     {
         ptr = strstr(ptr, "title");
         ptr += 6; // on avance le pointeur de 'title=' pour tomber sur le premier nameID
@@ -115,7 +160,7 @@ void IdentificationID(char *htmlStr, Stock **tabStock, size_t stockNbr)
         ptr += 12;
         sscanf(ptr, "%d\">%[A-Z]", &id, label);
         
-        stock = getSTKbyID(id, tabStock, stockNbr);
+        stock = getSTKbyID(id, tabStock);
         strcpy(stock->name, nameID);
         strcpy(stock->label, label);
         
