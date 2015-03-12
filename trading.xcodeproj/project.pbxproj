@@ -16,6 +16,48 @@
 		CEB26B381AAD276600F781FD /* Momentum.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B361AAD276600F781FD /* Momentum.c */; };
 		CEB26B391AAD276600F781FD /* Points Pivots.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B371AAD276600F781FD /* Points Pivots.c */; };
 		CEB26B3B1AAD2F8E00F781FD /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB26B3A1AAD2F8E00F781FD /* interface.c */; };
+		CEBD6A4F1AB2318500C5F552 /* AC.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A251AB2316F00C5F552 /* AC.txt */; };
+		CEBD6A501AB2318500C5F552 /* ACA.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A261AB2316F00C5F552 /* ACA.txt */; };
+		CEBD6A511AB2318500C5F552 /* AI.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A271AB2316F00C5F552 /* AI.txt */; };
+		CEBD6A521AB2318500C5F552 /* AIR.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A281AB2316F00C5F552 /* AIR.txt */; };
+		CEBD6A531AB2318500C5F552 /* ALO.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A291AB2316F00C5F552 /* ALO.txt */; };
+		CEBD6A541AB2318500C5F552 /* ALU.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2A1AB2316F00C5F552 /* ALU.txt */; };
+		CEBD6A551AB2318500C5F552 /* BN.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2B1AB2316F00C5F552 /* BN.txt */; };
+		CEBD6A561AB2318500C5F552 /* BNP.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2C1AB2316F00C5F552 /* BNP.txt */; };
+		CEBD6A571AB2318500C5F552 /* CA.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2D1AB2316F00C5F552 /* CA.txt */; };
+		CEBD6A581AB2318500C5F552 /* CAP.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2E1AB2316F00C5F552 /* CAP.txt */; };
+		CEBD6A591AB2318500C5F552 /* CS.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A2F1AB2316F00C5F552 /* CS.txt */; };
+		CEBD6A5A1AB2318500C5F552 /* DG.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A301AB2316F00C5F552 /* DG.txt */; };
+		CEBD6A5B1AB2318500C5F552 /* EDF.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A311AB2316F00C5F552 /* EDF.txt */; };
+		CEBD6A5C1AB2318500C5F552 /* EI.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A321AB2316F00C5F552 /* EI.txt */; };
+		CEBD6A5D1AB2318500C5F552 /* EN.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A331AB2316F00C5F552 /* EN.txt */; };
+		CEBD6A5E1AB2318500C5F552 /* FP.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A341AB2316F00C5F552 /* FP.txt */; };
+		CEBD6A5F1AB2318500C5F552 /* FR.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A351AB2316F00C5F552 /* FR.txt */; };
+		CEBD6A601AB2318500C5F552 /* GLE.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A361AB2316F00C5F552 /* GLE.txt */; };
+		CEBD6A611AB2318500C5F552 /* graphe.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A371AB2316F00C5F552 /* graphe.jpg */; };
+		CEBD6A621AB2318500C5F552 /* GSZ.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A381AB2316F00C5F552 /* GSZ.txt */; };
+		CEBD6A631AB2318500C5F552 /* GTO.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A391AB2316F00C5F552 /* GTO.txt */; };
+		CEBD6A641AB2318500C5F552 /* KER.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3A1AB2316F00C5F552 /* KER.txt */; };
+		CEBD6A651AB2318500C5F552 /* LG.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3B1AB2316F00C5F552 /* LG.txt */; };
+		CEBD6A661AB2318500C5F552 /* LR.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3C1AB2316F00C5F552 /* LR.txt */; };
+		CEBD6A671AB2318500C5F552 /* MC.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3D1AB2316F00C5F552 /* MC.txt */; };
+		CEBD6A681AB2318500C5F552 /* ML.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3E1AB2316F00C5F552 /* ML.txt */; };
+		CEBD6A691AB2318500C5F552 /* MT.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A3F1AB2316F00C5F552 /* MT.txt */; };
+		CEBD6A6A1AB2318500C5F552 /* OR.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A401AB2316F00C5F552 /* OR.txt */; };
+		CEBD6A6B1AB2318500C5F552 /* ORA.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A411AB2316F00C5F552 /* ORA.txt */; };
+		CEBD6A6C1AB2318500C5F552 /* PUB.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A421AB2316F00C5F552 /* PUB.txt */; };
+		CEBD6A6D1AB2318500C5F552 /* RI.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A431AB2316F00C5F552 /* RI.txt */; };
+		CEBD6A6E1AB2318500C5F552 /* RNO.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A441AB2316F00C5F552 /* RNO.txt */; };
+		CEBD6A6F1AB2318500C5F552 /* SAF.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A451AB2316F00C5F552 /* SAF.txt */; };
+		CEBD6A701AB2318500C5F552 /* SAN.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A461AB2316F00C5F552 /* SAN.txt */; };
+		CEBD6A711AB2318500C5F552 /* SGO.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A471AB2316F00C5F552 /* SGO.txt */; };
+		CEBD6A721AB2318500C5F552 /* SOLB.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A481AB2316F00C5F552 /* SOLB.txt */; };
+		CEBD6A731AB2318500C5F552 /* SU.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A491AB2316F00C5F552 /* SU.txt */; };
+		CEBD6A741AB2318500C5F552 /* TEC.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A4A1AB2316F00C5F552 /* TEC.txt */; };
+		CEBD6A751AB2318500C5F552 /* UL.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A4B1AB2316F00C5F552 /* UL.txt */; };
+		CEBD6A761AB2318500C5F552 /* URL in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A4C1AB2316F00C5F552 /* URL */; };
+		CEBD6A771AB2318500C5F552 /* VIE.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A4D1AB2316F00C5F552 /* VIE.txt */; };
+		CEBD6A781AB2318500C5F552 /* VIV.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBD6A4E1AB2316F00C5F552 /* VIV.txt */; };
 		CEC9D8B11AAB1B5300E1CE93 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D8B01AAB1B5300E1CE93 /* main.c */; };
 		CEDB0E721AAB30BF0048667C /* libatk-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB0E711AAB30BF0048667C /* libatk-1.0.0.dylib */; };
 		CEDB0E741AAB30DC0048667C /* libgdk-x11-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB0E731AAB30DC0048667C /* libgdk-x11-2.0.0.dylib */; };
@@ -31,12 +73,54 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		CEC9D8AB1AAB1B5300E1CE93 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 7;
 			files = (
+				CEBD6A4F1AB2318500C5F552 /* AC.txt in CopyFiles */,
+				CEBD6A501AB2318500C5F552 /* ACA.txt in CopyFiles */,
+				CEBD6A511AB2318500C5F552 /* AI.txt in CopyFiles */,
+				CEBD6A521AB2318500C5F552 /* AIR.txt in CopyFiles */,
+				CEBD6A531AB2318500C5F552 /* ALO.txt in CopyFiles */,
+				CEBD6A541AB2318500C5F552 /* ALU.txt in CopyFiles */,
+				CEBD6A551AB2318500C5F552 /* BN.txt in CopyFiles */,
+				CEBD6A561AB2318500C5F552 /* BNP.txt in CopyFiles */,
+				CEBD6A571AB2318500C5F552 /* CA.txt in CopyFiles */,
+				CEBD6A581AB2318500C5F552 /* CAP.txt in CopyFiles */,
+				CEBD6A591AB2318500C5F552 /* CS.txt in CopyFiles */,
+				CEBD6A5A1AB2318500C5F552 /* DG.txt in CopyFiles */,
+				CEBD6A5B1AB2318500C5F552 /* EDF.txt in CopyFiles */,
+				CEBD6A5C1AB2318500C5F552 /* EI.txt in CopyFiles */,
+				CEBD6A5D1AB2318500C5F552 /* EN.txt in CopyFiles */,
+				CEBD6A5E1AB2318500C5F552 /* FP.txt in CopyFiles */,
+				CEBD6A5F1AB2318500C5F552 /* FR.txt in CopyFiles */,
+				CEBD6A601AB2318500C5F552 /* GLE.txt in CopyFiles */,
+				CEBD6A611AB2318500C5F552 /* graphe.jpg in CopyFiles */,
+				CEBD6A621AB2318500C5F552 /* GSZ.txt in CopyFiles */,
+				CEBD6A631AB2318500C5F552 /* GTO.txt in CopyFiles */,
+				CEBD6A641AB2318500C5F552 /* KER.txt in CopyFiles */,
+				CEBD6A651AB2318500C5F552 /* LG.txt in CopyFiles */,
+				CEBD6A661AB2318500C5F552 /* LR.txt in CopyFiles */,
+				CEBD6A671AB2318500C5F552 /* MC.txt in CopyFiles */,
+				CEBD6A681AB2318500C5F552 /* ML.txt in CopyFiles */,
+				CEBD6A691AB2318500C5F552 /* MT.txt in CopyFiles */,
+				CEBD6A6A1AB2318500C5F552 /* OR.txt in CopyFiles */,
+				CEBD6A6B1AB2318500C5F552 /* ORA.txt in CopyFiles */,
+				CEBD6A6C1AB2318500C5F552 /* PUB.txt in CopyFiles */,
+				CEBD6A6D1AB2318500C5F552 /* RI.txt in CopyFiles */,
+				CEBD6A6E1AB2318500C5F552 /* RNO.txt in CopyFiles */,
+				CEBD6A6F1AB2318500C5F552 /* SAF.txt in CopyFiles */,
+				CEBD6A701AB2318500C5F552 /* SAN.txt in CopyFiles */,
+				CEBD6A711AB2318500C5F552 /* SGO.txt in CopyFiles */,
+				CEBD6A721AB2318500C5F552 /* SOLB.txt in CopyFiles */,
+				CEBD6A731AB2318500C5F552 /* SU.txt in CopyFiles */,
+				CEBD6A741AB2318500C5F552 /* TEC.txt in CopyFiles */,
+				CEBD6A751AB2318500C5F552 /* UL.txt in CopyFiles */,
+				CEBD6A761AB2318500C5F552 /* URL in CopyFiles */,
+				CEBD6A771AB2318500C5F552 /* VIE.txt in CopyFiles */,
+				CEBD6A781AB2318500C5F552 /* VIV.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -56,6 +140,48 @@
 		CEB26B371AAD276600F781FD /* Points Pivots.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "Points Pivots.c"; sourceTree = "<group>"; };
 		CEB26B3A1AAD2F8E00F781FD /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interface.c; sourceTree = "<group>"; };
 		CEB26B3C1AAD2FAC00F781FD /* interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = interface.h; path = trading/interface.h; sourceTree = "<group>"; };
+		CEBD6A251AB2316F00C5F552 /* AC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AC.txt; path = trading/resources/AC.txt; sourceTree = "<group>"; };
+		CEBD6A261AB2316F00C5F552 /* ACA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ACA.txt; path = trading/resources/ACA.txt; sourceTree = "<group>"; };
+		CEBD6A271AB2316F00C5F552 /* AI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AI.txt; path = trading/resources/AI.txt; sourceTree = "<group>"; };
+		CEBD6A281AB2316F00C5F552 /* AIR.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AIR.txt; path = trading/resources/AIR.txt; sourceTree = "<group>"; };
+		CEBD6A291AB2316F00C5F552 /* ALO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALO.txt; path = trading/resources/ALO.txt; sourceTree = "<group>"; };
+		CEBD6A2A1AB2316F00C5F552 /* ALU.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALU.txt; path = trading/resources/ALU.txt; sourceTree = "<group>"; };
+		CEBD6A2B1AB2316F00C5F552 /* BN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BN.txt; path = trading/resources/BN.txt; sourceTree = "<group>"; };
+		CEBD6A2C1AB2316F00C5F552 /* BNP.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BNP.txt; path = trading/resources/BNP.txt; sourceTree = "<group>"; };
+		CEBD6A2D1AB2316F00C5F552 /* CA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CA.txt; path = trading/resources/CA.txt; sourceTree = "<group>"; };
+		CEBD6A2E1AB2316F00C5F552 /* CAP.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CAP.txt; path = trading/resources/CAP.txt; sourceTree = "<group>"; };
+		CEBD6A2F1AB2316F00C5F552 /* CS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS.txt; path = trading/resources/CS.txt; sourceTree = "<group>"; };
+		CEBD6A301AB2316F00C5F552 /* DG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DG.txt; path = trading/resources/DG.txt; sourceTree = "<group>"; };
+		CEBD6A311AB2316F00C5F552 /* EDF.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EDF.txt; path = trading/resources/EDF.txt; sourceTree = "<group>"; };
+		CEBD6A321AB2316F00C5F552 /* EI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EI.txt; path = trading/resources/EI.txt; sourceTree = "<group>"; };
+		CEBD6A331AB2316F00C5F552 /* EN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EN.txt; path = trading/resources/EN.txt; sourceTree = "<group>"; };
+		CEBD6A341AB2316F00C5F552 /* FP.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FP.txt; path = trading/resources/FP.txt; sourceTree = "<group>"; };
+		CEBD6A351AB2316F00C5F552 /* FR.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FR.txt; path = trading/resources/FR.txt; sourceTree = "<group>"; };
+		CEBD6A361AB2316F00C5F552 /* GLE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GLE.txt; path = trading/resources/GLE.txt; sourceTree = "<group>"; };
+		CEBD6A371AB2316F00C5F552 /* graphe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = graphe.jpg; path = trading/resources/graphe.jpg; sourceTree = "<group>"; };
+		CEBD6A381AB2316F00C5F552 /* GSZ.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GSZ.txt; path = trading/resources/GSZ.txt; sourceTree = "<group>"; };
+		CEBD6A391AB2316F00C5F552 /* GTO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GTO.txt; path = trading/resources/GTO.txt; sourceTree = "<group>"; };
+		CEBD6A3A1AB2316F00C5F552 /* KER.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KER.txt; path = trading/resources/KER.txt; sourceTree = "<group>"; };
+		CEBD6A3B1AB2316F00C5F552 /* LG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LG.txt; path = trading/resources/LG.txt; sourceTree = "<group>"; };
+		CEBD6A3C1AB2316F00C5F552 /* LR.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LR.txt; path = trading/resources/LR.txt; sourceTree = "<group>"; };
+		CEBD6A3D1AB2316F00C5F552 /* MC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MC.txt; path = trading/resources/MC.txt; sourceTree = "<group>"; };
+		CEBD6A3E1AB2316F00C5F552 /* ML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ML.txt; path = trading/resources/ML.txt; sourceTree = "<group>"; };
+		CEBD6A3F1AB2316F00C5F552 /* MT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MT.txt; path = trading/resources/MT.txt; sourceTree = "<group>"; };
+		CEBD6A401AB2316F00C5F552 /* OR.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OR.txt; path = trading/resources/OR.txt; sourceTree = "<group>"; };
+		CEBD6A411AB2316F00C5F552 /* ORA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ORA.txt; path = trading/resources/ORA.txt; sourceTree = "<group>"; };
+		CEBD6A421AB2316F00C5F552 /* PUB.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PUB.txt; path = trading/resources/PUB.txt; sourceTree = "<group>"; };
+		CEBD6A431AB2316F00C5F552 /* RI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RI.txt; path = trading/resources/RI.txt; sourceTree = "<group>"; };
+		CEBD6A441AB2316F00C5F552 /* RNO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RNO.txt; path = trading/resources/RNO.txt; sourceTree = "<group>"; };
+		CEBD6A451AB2316F00C5F552 /* SAF.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SAF.txt; path = trading/resources/SAF.txt; sourceTree = "<group>"; };
+		CEBD6A461AB2316F00C5F552 /* SAN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SAN.txt; path = trading/resources/SAN.txt; sourceTree = "<group>"; };
+		CEBD6A471AB2316F00C5F552 /* SGO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SGO.txt; path = trading/resources/SGO.txt; sourceTree = "<group>"; };
+		CEBD6A481AB2316F00C5F552 /* SOLB.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SOLB.txt; path = trading/resources/SOLB.txt; sourceTree = "<group>"; };
+		CEBD6A491AB2316F00C5F552 /* SU.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SU.txt; path = trading/resources/SU.txt; sourceTree = "<group>"; };
+		CEBD6A4A1AB2316F00C5F552 /* TEC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TEC.txt; path = trading/resources/TEC.txt; sourceTree = "<group>"; };
+		CEBD6A4B1AB2316F00C5F552 /* UL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UL.txt; path = trading/resources/UL.txt; sourceTree = "<group>"; };
+		CEBD6A4C1AB2316F00C5F552 /* URL */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = URL; path = trading/resources/URL; sourceTree = "<group>"; };
+		CEBD6A4D1AB2316F00C5F552 /* VIE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VIE.txt; path = trading/resources/VIE.txt; sourceTree = "<group>"; };
+		CEBD6A4E1AB2316F00C5F552 /* VIV.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VIV.txt; path = trading/resources/VIV.txt; sourceTree = "<group>"; };
 		CEC9D8AD1AAB1B5300E1CE93 /* trading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = trading; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D8B01AAB1B5300E1CE93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CEDB0E711AAB30BF0048667C /* libatk-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libatk-1.0.0.dylib"; path = "../../../../../opt/local/lib/libatk-1.0.0.dylib"; sourceTree = "<group>"; };
@@ -93,6 +219,48 @@
 		CE127B4F1AACE29600045BAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEBD6A251AB2316F00C5F552 /* AC.txt */,
+				CEBD6A261AB2316F00C5F552 /* ACA.txt */,
+				CEBD6A271AB2316F00C5F552 /* AI.txt */,
+				CEBD6A281AB2316F00C5F552 /* AIR.txt */,
+				CEBD6A291AB2316F00C5F552 /* ALO.txt */,
+				CEBD6A2A1AB2316F00C5F552 /* ALU.txt */,
+				CEBD6A2B1AB2316F00C5F552 /* BN.txt */,
+				CEBD6A2C1AB2316F00C5F552 /* BNP.txt */,
+				CEBD6A2D1AB2316F00C5F552 /* CA.txt */,
+				CEBD6A2E1AB2316F00C5F552 /* CAP.txt */,
+				CEBD6A2F1AB2316F00C5F552 /* CS.txt */,
+				CEBD6A301AB2316F00C5F552 /* DG.txt */,
+				CEBD6A311AB2316F00C5F552 /* EDF.txt */,
+				CEBD6A321AB2316F00C5F552 /* EI.txt */,
+				CEBD6A331AB2316F00C5F552 /* EN.txt */,
+				CEBD6A341AB2316F00C5F552 /* FP.txt */,
+				CEBD6A351AB2316F00C5F552 /* FR.txt */,
+				CEBD6A361AB2316F00C5F552 /* GLE.txt */,
+				CEBD6A371AB2316F00C5F552 /* graphe.jpg */,
+				CEBD6A381AB2316F00C5F552 /* GSZ.txt */,
+				CEBD6A391AB2316F00C5F552 /* GTO.txt */,
+				CEBD6A3A1AB2316F00C5F552 /* KER.txt */,
+				CEBD6A3B1AB2316F00C5F552 /* LG.txt */,
+				CEBD6A3C1AB2316F00C5F552 /* LR.txt */,
+				CEBD6A3D1AB2316F00C5F552 /* MC.txt */,
+				CEBD6A3E1AB2316F00C5F552 /* ML.txt */,
+				CEBD6A3F1AB2316F00C5F552 /* MT.txt */,
+				CEBD6A401AB2316F00C5F552 /* OR.txt */,
+				CEBD6A411AB2316F00C5F552 /* ORA.txt */,
+				CEBD6A421AB2316F00C5F552 /* PUB.txt */,
+				CEBD6A431AB2316F00C5F552 /* RI.txt */,
+				CEBD6A441AB2316F00C5F552 /* RNO.txt */,
+				CEBD6A451AB2316F00C5F552 /* SAF.txt */,
+				CEBD6A461AB2316F00C5F552 /* SAN.txt */,
+				CEBD6A471AB2316F00C5F552 /* SGO.txt */,
+				CEBD6A481AB2316F00C5F552 /* SOLB.txt */,
+				CEBD6A491AB2316F00C5F552 /* SU.txt */,
+				CEBD6A4A1AB2316F00C5F552 /* TEC.txt */,
+				CEBD6A4B1AB2316F00C5F552 /* UL.txt */,
+				CEBD6A4C1AB2316F00C5F552 /* URL */,
+				CEBD6A4D1AB2316F00C5F552 /* VIE.txt */,
+				CEBD6A4E1AB2316F00C5F552 /* VIV.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -319,6 +487,7 @@
 		CEC9D8B51AAB1B5300E1CE93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -334,12 +503,14 @@
 				);
 				OTHER_CFLAGS = "$(pkg-config --cflags --libs glib-2.0)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 			};
 			name = Debug;
 		};
 		CEC9D8B61AAB1B5300E1CE93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -355,6 +526,7 @@
 				);
 				OTHER_CFLAGS = "$(pkg-config --cflags --libs glib-2.0)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 			};
 			name = Release;
 		};

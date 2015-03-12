@@ -15,6 +15,6 @@
 #include <string.h>
 #include "action.h"
 
-void interface(int argc, char **argv);
+void interface(int argc, char **argv, TabStock *tabStock);
 
 #endif

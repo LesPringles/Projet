@@ -12,7 +12,7 @@ EXEC=trading
 # ONLY FOR THIS EXERCICE
 all: $(EXEC)
 
-$(EXEC): interface.o parsing.o action.o reseau.o main.c
+$(EXEC): reseau.o action.o parsing.o interface.o simulation.o main.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) 
 
 parsing.o: reseau.o action.o parsing.c

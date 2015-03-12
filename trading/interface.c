@@ -42,7 +42,7 @@ menu_item_new(GTK_MENU(elem), string[i], G_CALLBACK(changename), user_data);
 
 //void mafonction(GtkWidget* elem, gpointer data){}
 
-void interface(int argc, char **argv)
+void interface(int argc, char **argv, TabStock *tabStock)
 {
 	/* Variables */
   	GtkWidget* p_Windows = NULL;
@@ -54,11 +54,14 @@ void interface(int argc, char **argv)
 	GtkWidget* pElement[4];
 	gchar* Texte = NULL;
 	gchar* Valeurs = NULL;
-	char Action[20] = "Nom l'Action";
+    
+    int stkID = tabStock->tab[0].id;
+	char *Action = (getSTKbyID(stkID, tabStock))->name;
+    
 	char *string[12];
-	string[0]="mma150";
+	string[0]="MMA20";
 	string[1]="40";
-	string[2]="mme";
+	string[2]="MME";
 	string[3]="30";
 	string[4]="geo";
 	string[5]="40.5";

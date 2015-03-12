@@ -1,0 +1,4 @@
+Indice = CAC40
+41
+URL Ajax = http://1.ajax.lecho.be/rtq/?reqtype=simple&quotes=360015511&lightquotes=&group=g30_q_p
+URL nameID = http://www.lecho.be/bourses/euronext-paris/cac40

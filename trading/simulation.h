@@ -11,8 +11,17 @@
 
 #include <stdio.h>
 #include "action.h"
+#define TAILLETABSTOCKSIM 10
 
 typedef struct SimStock SimStock;
+typedef struct wallet Wallet;
+
+int ReadWallet(Wallet *wallet);
+void Initwallet(Wallet *wallet, float money);
+void Achat(Wallet *wallet, Stock stock, int nbrStock);
+void Vente(Wallet *wallet, Stock stock, int nbrStock);
+void SaveWallet(Wallet *wallet);
+
 struct SimStock
 {
     int stockId;
@@ -20,14 +29,11 @@ struct SimStock
     int nbr;
 };
 
-typedef struct wallet Wallet;
 struct wallet
 {
     float money;
     short unsigned stkOwn;
     SimStock* stock;
 };
-
-int ReadWallet(Wallet *wallet);
 
 #endif /* defined(__trading__simulation__) */
