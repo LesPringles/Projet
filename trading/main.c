@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
     Achat(&wallet, getStkByName("Technip", &tabStock), 200);
     Achat(&wallet, getStkByName("Sanofi", &tabStock), 300);
     Achat(&wallet, getStkByName("Capgemini", &tabStock), 300);
+    Vente(&wallet, getStkByName("EDF", &tabStock), 400);
     SaveWallet(&wallet);
     
     interface(argc, argv, &tabStock);

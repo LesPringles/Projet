@@ -132,7 +132,7 @@ void Vente(Wallet *wallet, Stock stock, int nbrStock)
         if (wallet->stock != NULL)
         {
             // Recherche de l'action
-            int i;
+            int i = 0;
             while ((i < wallet->stkOwn) && (wallet->stock[i].stockId != stock->id))
             {
                 i++;
@@ -143,6 +143,8 @@ void Vente(Wallet *wallet, Stock stock, int nbrStock)
             {
                 wallet->stock[i].nbr -= nbrStock;
                 wallet->money += nbrStock * stock->last;
+                if (wallet->stock[i].nbr == 0)
+                    wallet->stkOwn--;
             }
             else
             {
@@ -158,7 +160,7 @@ void Vente(Wallet *wallet, Stock stock, int nbrStock)
     }
     else
     {
-        printf("Erreur portefeuille\n");
+        printf("Erreur portefeuille ou ID action faux\n");
     }
     
 }
