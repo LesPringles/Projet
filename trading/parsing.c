@@ -10,7 +10,7 @@
 
 pthread_t InitParsing(TabStock *tabStock, char *indice, int time)
 {
-    FILE* fp = fopen("/Users/user/Documents/Projet/trading/resources/URL", "r");
+    FILE* fp = fopen("./resources/URL", "r");
     if (fp == NULL)
     {
         printf("Fichier URL manquant\n");

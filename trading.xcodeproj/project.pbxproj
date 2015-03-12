@@ -501,9 +501,10 @@
 					"/opt/local/lib/**",
 					/opt/local/lib,
 				);
+				OBJROOT = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				OTHER_CFLAGS = "$(pkg-config --cflags --libs glib-2.0)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "~/Documents/Projet/trading";
 			};
 			name = Debug;
 		};
@@ -524,9 +525,10 @@
 					"/opt/local/lib/**",
 					/opt/local/lib,
 				);
+				OBJROOT = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				OTHER_CFLAGS = "$(pkg-config --cflags --libs glib-2.0)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = "";
+				SYMROOT = "$(CONFIGURATION_BUILD_DIR)";
 			};
 			name = Release;
 		};
