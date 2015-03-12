@@ -7,7 +7,7 @@
 //
 
 #include "simulation.h"
-
+#define PATH "./portefeuille"
 
 // Module de simulation à faire. Prend en parametre le prix d'achat
 // Le nombre d'achat à acheter, le titre à acheter
@@ -22,28 +22,21 @@ int ReadWallet(Wallet *wallet)
     // le prix d'achat
     float money = .0;
     int stkOwn = 0;
-    if (wallet == NULL)
-    {
-        wallet = malloc(sizeof(wallet));
-        wallet->money = .0;
-        wallet->stkOwn = 0;
-        wallet->stock = NULL;
-    }
     
-    FILE* fp = fopen("./simulation/portefeuille", "r");
+    FILE* fp = fopen(PATH, "r");
     if (fp != NULL)
     {
         // le fichier existe
         // la simulation existe deja
         // lire le fichier
-        fscanf(fp, "%f\n%d\n", &money, &stkOwn);
+        fscanf(fp, "%f\n%d", &money, &stkOwn);
         
         wallet->money = money;
         wallet->stkOwn = stkOwn;
         if (stkOwn == 0)
             return 1; // pas d'action
         
-        wallet->stock = malloc(sizeof(Stock) * TAILLETABSTOCKSIM);
+        wallet->stock = malloc(sizeof(struct SimStock) * TAILLETABSTOCKSIM);
         
         int i = 0;
         while((fscanf(fp, "%d;%f;%d\n", &(wallet->stock[i].stockId), &(wallet->stock[i].price), &(wallet->stock[i].nbr)) != EOF)
@@ -70,31 +63,19 @@ int ReadWallet(Wallet *wallet)
 
 void Initwallet(Wallet *wallet, float money)
 {
-    FILE* fp;
-    fp = fopen("./simulation/portefeuille", "a");
-    
-    if (fp != NULL)
-    {
-        wallet = calloc(1, sizeof(struct wallet));
-        wallet->money = money;
-        
-        char *string;
-        asprintf(&string, "%f\n%d\n", money, 0);
-        fputs(string, fp);
-        free(string);
-    }
+    wallet->money = money;
 }
 
 void Achat(Wallet *wallet, Stock stock, int nbrStock)
 {
-    if (wallet != NULL)
+    if (wallet != NULL && stock != NULL)
     {
         if (stock->last * nbrStock <= wallet->money)
         {
             if (wallet->stock == NULL)
             {
                 // aucune action dans le portefeuille
-                wallet->stock = malloc(sizeof(struct SimStock));
+                wallet->stock = malloc(sizeof(struct SimStock) * TAILLETABSTOCKSIM);
                 wallet->stock->stockId = stock->id;
                 wallet->stock->price = stock->last;
                 wallet->stock->nbr = nbrStock;
@@ -120,15 +101,15 @@ void Achat(Wallet *wallet, Stock stock, int nbrStock)
                 else
                 {
                     wallet->stkOwn++;
-                    if (wallet->stkOwn >= TAILLETABSTOCKSIM) // grosse flemme
+                    if (wallet->stkOwn < TAILLETABSTOCKSIM) // grosse flemme
                     {
-                        wallet->stock[i+1].stockId = stock->id;
-                        wallet->stock[i+1].price = stock->last;
-                        wallet->stock[i+1].nbr = nbrStock;
+                        wallet->stock[i].stockId = stock->id;
+                        wallet->stock[i].price = stock->last;
+                        wallet->stock[i].nbr = nbrStock;
                     }
                     else
                     {
-                        printf("Tableau simulation trop petit");
+                        printf("Tableau simulation trop petit\n");
                     }
                 }
             }
@@ -137,6 +118,7 @@ void Achat(Wallet *wallet, Stock stock, int nbrStock)
         else
         {
             // pas assez d'argent
+            printf("Pas assez d'argent\n");
             
         }
         
@@ -145,7 +127,7 @@ void Achat(Wallet *wallet, Stock stock, int nbrStock)
 
 void Vente(Wallet *wallet, Stock stock, int nbrStock)
 {
-    if (wallet != NULL)
+    if (wallet != NULL && stock != NULL)
     {
         if (wallet->stock != NULL)
         {
@@ -164,19 +146,19 @@ void Vente(Wallet *wallet, Stock stock, int nbrStock)
             }
             else
             {
-                printf("Pas assez d'action");
+                printf("Pas assez d'action\n");
             }
             
         }
         else
         {
-            printf("Tableau d'action non initialiser");
+            printf("Tableau d'action non initialiser\n");
         }
         
     }
     else
     {
-        printf("Erreur portefeuille");
+        printf("Erreur portefeuille\n");
     }
     
 }
@@ -184,19 +166,19 @@ void Vente(Wallet *wallet, Stock stock, int nbrStock)
 void SaveWallet(Wallet *wallet)
 {
     FILE* fp;
-    fp = fopen("./simulation/portefeuille", "w");
+    fp = fopen(PATH, "w");
     
     if (fp != NULL)
     {
-        char *string;
-        asprintf(&string, "%f\n%d\n", wallet->money, wallet->stkOwn);
+        char string[100];
+        sprintf(string, "%f\n%d\n", wallet->money, wallet->stkOwn);
         fputs(string, fp);
         int i = 0;
         while (i < wallet->stkOwn)
         {
             sprintf(string, "%d;%f;%d\n", wallet->stock[i].stockId, wallet->stock[i].price, wallet->stock[i].nbr);
             fputs(string, fp);
+            i++;
         }
-        free(string);
     }
 }

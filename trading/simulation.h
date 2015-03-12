@@ -33,7 +33,7 @@ struct wallet
 {
     float money;
     short unsigned stkOwn;
-    SimStock* stock;
+    SimStock *stock;
 };
 
 #endif /* defined(__trading__simulation__) */

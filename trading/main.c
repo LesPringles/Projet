@@ -19,13 +19,11 @@ int main(int argc, char *argv[])
     
     Wallet wallet;
     if (ReadWallet(&wallet))
-    {
-        // Readwallet renvoie 1 renvoie 1 si le portefeuille n'existe pas
-        
         Initwallet(&wallet, 100000);
-    }
     
-    Achat(&wallet, getStkByName("EDF", &tabStock), 500);
+    Achat(&wallet, getStkByName("Technip", &tabStock), 200);
+    Achat(&wallet, getStkByName("Sanofi", &tabStock), 300);
+    Achat(&wallet, getStkByName("Capgemini", &tabStock), 300);
     SaveWallet(&wallet);
     
     interface(argc, argv, &tabStock);
